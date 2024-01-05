@@ -126,6 +126,24 @@ from book b
 natural join book_authors ba
 natural join book_copies bc;
 
+# -------or---------
+
+SELECT 
+    b.book_id, 
+    b.title, 
+    b.publisher_name, 
+    ba.author_name, 
+    bc.branch_id, 
+    bc.no_of_copies
+FROM 
+    book b
+JOIN 
+    book_authors ba ON b.book_id = ba.book_id
+JOIN 
+    book_copies bc ON b.book_id = bc.book_id;
+
+
+
 # 2. Get the particular borrowers who have borrowed more than 3 books from Jan 2020 to
 # Jun 2022.
 select card_no
